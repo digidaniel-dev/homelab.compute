@@ -80,9 +80,3 @@ variable "docker_internal_ip" {
   type = string
 }
 
-// Gitea VM
-
-variable "gitea_ip" {
-  type = string
-}
-
