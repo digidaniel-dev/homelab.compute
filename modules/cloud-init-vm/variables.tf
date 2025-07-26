@@ -110,3 +110,20 @@ variable "checksum_algorithm" {
   description = "Select what algorithm to use to verify file"
   default     = "sha256"
 }
+
+# Ansible
+
+variable "repo_url" {
+  type        = string
+  description = "What repo should ansible pull playbook from?"
+}
+
+variable "playbook" {
+  type        = string
+  description = "What playbook should be run on the VM?"
+}
+
+variable "deploy_key" {
+  type        = string
+  description = "Deploy key used when fetching configuration from SCM"
+}

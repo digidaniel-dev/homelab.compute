@@ -56,6 +56,10 @@ variable "dns_servers" {
   sensitive = true
 }
 
+variable "deploy_key" {
+  type = string
+}
+
 // Docker VM
 
 variable "docker_login_user" {
