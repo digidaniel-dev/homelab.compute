@@ -28,4 +28,9 @@ module "vm_1020_github_runner" {
   ipaddress   = var.github_runner_ip
   gateway     = var.github_runner_gateway
   dns_servers = var.dns_servers
+
+  # Ansible
+  repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
+  playbook = "github-runner-vm.yml"
+  deploy_key = var.deploy_key
 }

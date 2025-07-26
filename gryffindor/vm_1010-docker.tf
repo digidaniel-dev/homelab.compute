@@ -29,4 +29,9 @@ module "vm_1010_docker" {
   ipaddress   = var.docker_ip
   gateway     = var.docker_gateway
   dns_servers = var.dns_servers
+
+  # Ansible
+  repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
+  playbook = "docker-vm.yml"
+  deploy_key = var.deploy_key
 }

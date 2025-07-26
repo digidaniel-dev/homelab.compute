@@ -29,4 +29,9 @@ module "vm_1030_gitea" {
   ipaddress   = var.gitea_ip
   gateway     = var.gitea_gateway
   dns_servers = var.dns_servers
+
+  # Ansible
+  repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
+  playbook = "gitea-vm.yml"
+  deploy_key = var.deploy_key
 }
