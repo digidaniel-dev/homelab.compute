@@ -51,6 +51,10 @@ variable "ssh_key_path" {
   type = string
 }
 
+variable "default_gateway" {
+  type = string
+}
+
 variable "dns_servers" {
   type      = list(string)
   sensitive = true
@@ -70,26 +74,9 @@ variable "docker_ip" {
   type = string
 }
 
-variable "docker_gateway" {
-  type = string
-}
-
 // Gitea VM
 
 variable "gitea_ip" {
   type = string
 }
 
-variable "gitea_gateway" {
-  type = string
-}
-
-// Github runner VM
-
-variable "github_runner_ip" {
-  type = string
-}
-
-variable "github_runner_gateway" {
-  type = string
-}

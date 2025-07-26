@@ -27,11 +27,11 @@ module "vm_1010_docker_external" {
 
   # Networking
   ipaddress   = var.docker_ip
-  gateway     = var.docker_gateway
+  gateway     = var.default_gateway
   dns_servers = var.dns_servers
 
   # Ansible
   repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
-  playbook = "docker-vm.yml"
+  playbook = "docker-external.yml"
   deploy_key = var.deploy_key
 }
