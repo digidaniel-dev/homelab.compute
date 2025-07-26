@@ -68,9 +68,15 @@ variable "default_user" {
   type = string
 }
 
-// Docker VM
+// Docker External VM
 
-variable "docker_ip" {
+variable "docker_external_ip" {
+  type = string
+}
+
+// Docker Internal VM
+
+variable "docker_internal_ip" {
   type = string
 }
 

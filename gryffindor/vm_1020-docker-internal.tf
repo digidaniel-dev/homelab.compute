@@ -1,14 +1,14 @@
-module "vm_1010_docker_external" {
+module "vm_1020_docker_external" {
   source = "../modules/cloud-init-vm"
   providers = {
     proxmox = proxmox.api
   }
 
   # VM configuration
-  name  = "docker-external"
-  vm_id = 1010
+  name  = "docker-internal"
+  vm_id = 1020
   node  = module.main-node.name
-  tags  = ["debian", "docker", "public"]
+  tags  = ["debian", "docker", "private"]
 
   # Credentials
   user     = var.default_user
@@ -26,12 +26,12 @@ module "vm_1010_docker_external" {
   checksum_algorithm = "sha512"
 
   # Networking
-  ipaddress   = var.docker_external_ip
+  ipaddress   = var.docker_internal_ip
   gateway     = var.default_gateway
   dns_servers = var.dns_servers
 
   # Ansible
   repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
-  playbook = "docker-external.yml"
+  playbook = "docker-internal.yml"
   deploy_key = var.deploy_key
 }
