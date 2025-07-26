@@ -11,7 +11,7 @@ module "vm_1030_gitea" {
   tags  = ["debian", "gitea"]
 
   # Credentials
-  user     = var.gitea_login_user
+  user     = var.default_user
   ssh_keys = data.local_file.ssh_public_key.content
 
   # Resources

@@ -60,11 +60,11 @@ variable "deploy_key" {
   type = string
 }
 
-// Docker VM
-
-variable "docker_login_user" {
+variable "default_user" {
   type = string
 }
+
+// Docker VM
 
 variable "docker_ip" {
   type = string
@@ -76,10 +76,6 @@ variable "docker_gateway" {
 
 // Gitea VM
 
-variable "gitea_login_user" {
-  type = string
-}
-
 variable "gitea_ip" {
   type = string
 }
@@ -89,10 +85,6 @@ variable "gitea_gateway" {
 }
 
 // Github runner VM
-
-variable "github_runner_login_user" {
-  type = string
-}
 
 variable "github_runner_ip" {
   type = string

@@ -11,7 +11,7 @@ module "vm_1020_github_runner" {
   tags  = ["debian", "github-runner"]
 
   # Credentials
-  user     = var.github_runner_login_user
+  user     = var.default_user
   ssh_keys = data.local_file.ssh_public_key.content
 
   # Resources

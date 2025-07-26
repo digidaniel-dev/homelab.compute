@@ -1,17 +1,17 @@
-module "vm_1010_docker" {
+module "vm_1010_docker_external" {
   source = "../modules/cloud-init-vm"
   providers = {
     proxmox = proxmox.api
   }
 
   # VM configuration
-  name  = "docker"
+  name  = "docker-external"
   vm_id = 1010
   node  = module.main-node.name
-  tags  = ["debian", "docker"]
+  tags  = ["debian", "docker", "public"]
 
   # Credentials
-  user     = var.docker_login_user
+  user     = var.default_user
   ssh_keys = data.local_file.ssh_public_key.content
 
   # Resources
