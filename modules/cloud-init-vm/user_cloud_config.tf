@@ -48,7 +48,7 @@ resource "proxmox_virtual_environment_file" "user_cloud_config" {
 
           [Service]
           Type=oneshot
-          ExecStart=/usr/bin/ansible-pull -U ${var.repo_url} playbooks/${var.playbook} --tags="update" -i local,localhost,${var.name}, -C main
+          ExecStart=/usr/bin/ansible-pull -U ${var.repo_url} playbooks/${var.playbook} --tags="update" -C main
           WorkingDirectory=/root
           StandardOutput=journal
           StandardError=journal
@@ -73,7 +73,7 @@ resource "proxmox_virtual_environment_file" "user_cloud_config" {
       - systemctl start qemu-guest-agent
       - systemctl enable ansible-pull.timer
       - systemctl start ansible-pull.timer
-      - ansible-pull -U ${var.repo_url} playbooks/${var.playbook} --tags="install" -i local,localhost,${var.name} -C main > /var/log/ansible-pull.log 2>&1 || touch /tmp/ansible-pull-failed
+      - ansible-pull -U ${var.repo_url} playbooks/${var.playbook} --tags="install" -C main > /var/log/ansible-pull.log 2>&1 || touch /tmp/ansible-pull-failed
       - echo "Provisioning completed at $(date -Is)" > /var/log/cloud-init-confirmation.log
     EOF
 
