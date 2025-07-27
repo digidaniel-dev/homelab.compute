@@ -1,4 +1,4 @@
-module "vm_1020_docker_external" {
+module "vm_1020_docker_internal" {
   source = "../modules/cloud-init-vm"
   providers = {
     proxmox = proxmox.api
