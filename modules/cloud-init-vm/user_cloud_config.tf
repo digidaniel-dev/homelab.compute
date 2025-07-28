@@ -71,9 +71,9 @@ resource "proxmox_virtual_environment_file" "user_cloud_config" {
       - systemctl daemon-reload
       - systemctl enable qemu-guest-agent
       - systemctl start qemu-guest-agent
+      - ansible-pull -U ${var.repo_url} playbooks/${var.playbook} --tags="install" -C main > /var/log/ansible-pull.log 2>&1 || touch /tmp/ansible-pull-failed
       - systemctl enable ansible-pull.timer
       - systemctl start ansible-pull.timer
-      - ansible-pull -U ${var.repo_url} playbooks/${var.playbook} --tags="install" -C main > /var/log/ansible-pull.log 2>&1 || touch /tmp/ansible-pull-failed
       - echo "Provisioning completed at $(date -Is)" > /var/log/cloud-init-confirmation.log
     EOF
 
