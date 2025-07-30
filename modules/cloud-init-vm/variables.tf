@@ -33,6 +33,12 @@ variable "datastore_id" {
   description = "Defines what datastore the data should be store at"
 }
 
+variable "use_ansible_pull" {
+  type        = bool
+  default     = true
+  description = "Should ansible-pull service be setup on VM"
+}
+
 # Resource variables
 
 variable "cpu_cores" {
@@ -115,15 +121,18 @@ variable "checksum_algorithm" {
 
 variable "repo_url" {
   type        = string
+  default     = ""
   description = "What repo should ansible pull playbook from?"
 }
 
 variable "playbook" {
   type        = string
+  default     = ""
   description = "What playbook should be run on the VM?"
 }
 
 variable "deploy_key" {
   type        = string
+  default     = ""
   description = "Deploy key used when fetching configuration from SCM"
 }
