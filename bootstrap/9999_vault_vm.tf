@@ -1,4 +1,4 @@
-module "vm_9998_gitea" {
+module "vm_9999_vault" {
   source = "../modules/cloud-init-vm"
   providers = {
     proxmox = proxmox.api
@@ -32,6 +32,6 @@ module "vm_9998_gitea" {
 
   # Ansible
   repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
-  playbook = "gitea.yml"
+  playbook = "vault.yml"
   deploy_key = var.deploy_key
 }
