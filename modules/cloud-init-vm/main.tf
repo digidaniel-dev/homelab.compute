@@ -24,6 +24,7 @@ resource "proxmox_virtual_environment_vm" "cloud_init_vm" {
   migrate         = true
 
   cpu {
+    type  = var.cpu_type
     cores = var.cpu_cores
   }
 
@@ -65,6 +66,7 @@ resource "proxmox_virtual_environment_vm" "cloud_init_vm" {
 
   network_device {
     bridge = "vmbr0"
+    mac_address = var.macaddress
   }
 
   # This is required to prevent Kernel Panic error, not sure why!

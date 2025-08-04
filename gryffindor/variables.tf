@@ -68,15 +68,29 @@ variable "default_user" {
   type = string
 }
 
-// Docker External VM
+// Talos VM's
 
-variable "docker_external_ip" {
+variable "talos-1_ip" {
   type = string
 }
 
-// Docker Internal VM
+variable "talos-1_mac" {
+  type = string
+}
 
-variable "docker_internal_ip" {
+variable "talos-2_ip" {
+  type = string
+}
+
+variable "talos-2_mac" {
+  type = string
+}
+
+variable "talos-3_ip" {
+  type = string
+}
+
+variable "talos-3_mac" {
   type = string
 }
 

@@ -41,6 +41,12 @@ variable "use_ansible_pull" {
 
 # Resource variables
 
+variable "cpu_type" {
+  type        = string
+  default     = "qemu64"
+  description = "Specifies the number of cores that VM should be running"
+}
+
 variable "cpu_cores" {
   type        = number
   default     = 2
@@ -77,6 +83,13 @@ variable "ipaddress" {
   type        = string
   description = "Defines what IP should be set to the VM"
   default     = "dhcp"
+  sensitive   = true
+}
+
+variable "macaddress" {
+  type        = string
+  description = "Defines what mac-address should be set to the VM"
+  default     = ""
   sensitive   = true
 }
 
