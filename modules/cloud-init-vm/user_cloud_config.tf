@@ -1,7 +1,7 @@
 resource "proxmox_virtual_environment_file" "user_cloud_config" {
   content_type = "snippets"
   datastore_id = "local"
-  node_name    = "gryffindor"
+  node_name    = var.node
 
   source_raw {
     data = templatefile("${path.module}/cloud_config.tmpl", {
@@ -10,7 +10,9 @@ resource "proxmox_virtual_environment_file" "user_cloud_config" {
       ssh_key = trimspace(var.ssh_keys)
       deploy_key = indent(6, trimspace(var.deploy_key))
       repo_url = var.repo_url
-      playbook = var.playbook
+      // By setting the playbook to the same as the host it is easier to know
+      // what playbook is run.
+      playbook = var.name
       write_files_block = indent(2, trimspace(local.write_files_block))
     })
 

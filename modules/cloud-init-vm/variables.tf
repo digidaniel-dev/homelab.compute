@@ -125,12 +125,6 @@ variable "repo_url" {
   description = "What repo should ansible pull playbook from?"
 }
 
-variable "playbook" {
-  type        = string
-  default     = ""
-  description = "What playbook should be run on the VM?"
-}
-
 variable "deploy_key" {
   type        = string
   default     = ""

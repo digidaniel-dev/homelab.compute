@@ -28,7 +28,6 @@ module "vm_1010_docker_external" {
   dns_servers = var.dns_servers
 
   # Ansible
-  repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
-  playbook = "docker-external.yml"
+  repo_url = "git@github.com:digidaniel-dev/homelab.platform.git"
   deploy_key = var.deploy_key
 }
