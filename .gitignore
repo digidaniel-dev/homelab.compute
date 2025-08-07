@@ -39,4 +39,4 @@ override.tf.json
 terraform.rc
 
 # Backend configuration
-**/state.config
+**/backend.config
