@@ -1,13 +1,10 @@
 module "vm_1020_docker_internal" {
   source = "../modules/cloud-init-vm"
-  providers = {
-    proxmox = proxmox.api
-  }
 
   # VM configuration
   name  = "docker-internal"
   vm_id = 1020
-  node  = module.main-node.name
+  node  = local.node
   tags  = ["debian", "docker", "private"]
 
   # Credentials

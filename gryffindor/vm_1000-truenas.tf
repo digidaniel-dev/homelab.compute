@@ -1,11 +1,9 @@
 resource "proxmox_virtual_environment_vm" "truenas_vm" {
-  provider = proxmox.api
-
   name        = "truenas"
   description = "Managed by Terraform"
   tags        = ["terraform", "truenas"]
 
-  node_name = module.main-node.name
+  node_name = local.node
   vm_id     = 1000
 
   keyboard_layout = "sv"

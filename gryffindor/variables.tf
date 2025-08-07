@@ -4,6 +4,24 @@ variable "endpoint" {
   type = string
 }
 
+// Proxmox ACME Plugin
+
+variable "cloudflare_account_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "cloudflare_api_token" {
+  type      = string
+  sensitive = true
+}
+
+// Proxmox ACME Account
+
+variable "email" {
+  type = string
+}
+
 // SSH provider
 
 variable "password" {
@@ -26,25 +44,6 @@ variable "api_token" {
   type      = string
   sensitive = true
 }
-
-// Proxmox ACME Account
-
-variable "email" {
-  type = string
-}
-
-// Proxmox ACME Plugin
-
-variable "cloudflare_account_id" {
-  type      = string
-  sensitive = true
-}
-
-variable "cloudflare_api_token" {
-  type      = string
-  sensitive = true
-}
-
 // Generic VM
 
 variable "ssh_key_path" {
