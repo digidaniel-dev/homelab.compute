@@ -1,10 +1,16 @@
-// All providers
+// Terraform Provider
 
 variable "endpoint" {
   type = string
 }
 
-// API Provider
+variable "ssh_user" {
+  type    = string
+}
+
+variable "ssh_password" {
+  type    = string
+}
 
 variable "api_token" {
   type      = string
@@ -40,9 +46,16 @@ variable "docker_external_ip" {
   type = string
 }
 
+variable "docker_external_mac" {
+  type = string
+}
+
 // Docker Internal VM
 
 variable "docker_internal_ip" {
   type = string
 }
 
+variable "docker_internal_mac" {
+  type = string
+}

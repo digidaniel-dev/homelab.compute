@@ -24,6 +24,7 @@ module "vm_1010_docker_external" {
 
   # Networking
   ipaddress   = var.docker_external_ip
+  macaddress  = var.docker_external_mac
   gateway     = var.default_gateway
   dns_servers = var.dns_servers
 

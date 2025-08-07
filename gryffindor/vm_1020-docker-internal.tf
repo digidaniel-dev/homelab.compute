@@ -24,6 +24,7 @@ module "vm_1020_docker_internal" {
 
   # Networking
   ipaddress   = var.docker_internal_ip
+  macaddress  = var.docker_internal_mac
   gateway     = var.default_gateway
   dns_servers = var.dns_servers
 

@@ -80,6 +80,13 @@ variable "ipaddress" {
   sensitive   = true
 }
 
+variable "macaddress" {
+  type        = string
+  description = "Defines what MAC should be set to the VM"
+  default     = null
+  sensitive   = true
+}
+
 variable "gateway" {
   type        = string
   description = "Defines what gateway that the VM should be using"
