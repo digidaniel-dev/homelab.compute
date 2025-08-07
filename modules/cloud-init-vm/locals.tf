@@ -25,7 +25,7 @@ locals {
 
       [Service]
       Type=oneshot
-      ExecStart=/usr/bin/ansible-pull -U ${var.repo_url} playbooks/${var.name} --tags="update" -C main
+      ExecStart=/usr/bin/ansible-pull -U ${var.repo_url} playbooks/${var.name}.yml --tags="update" -C main
       WorkingDirectory=/root
       StandardOutput=journal
       StandardError=journal

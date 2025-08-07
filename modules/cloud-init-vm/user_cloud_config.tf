@@ -12,7 +12,7 @@ resource "proxmox_virtual_environment_file" "user_cloud_config" {
       repo_url = var.repo_url
       // By setting the playbook to the same as the host it is easier to know
       // what playbook is run.
-      playbook = var.name
+      playbook = "${var.name}.yml"
       write_files_block = indent(2, trimspace(local.write_files_block))
     })
 
