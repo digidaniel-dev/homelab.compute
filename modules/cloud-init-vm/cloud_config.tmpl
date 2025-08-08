@@ -24,7 +24,7 @@ write_files:
 runcmd:
   - systemctl daemon-reexec
   - systemctl daemon-reload
-  - ansible-pull -U ${repo_url} playbooks/${playbook} --tags="install" -C main > /var/log/ansible-pull.log 2>&1 || touch /tmp/ansible-pull-failed
+  - ansible-pull -U ${repo_url} playbooks/${playbook} --tags="install" -C main -d /root/.ansible-cache/platform-install > /var/log/ansible-pull.log 2>&1 || touch /tmp/ansible-pull-failed
   - systemctl enable ansible-pull.timer
   - systemctl start ansible-pull.timer
   - systemctl enable qemu-guest-agent
