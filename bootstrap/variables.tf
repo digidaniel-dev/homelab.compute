@@ -1,4 +1,13 @@
+variable "password" {
+  type      = string
+  sensitive = true
+}
+
 variable "default_user" {
+  type = string
+}
+
+variable "node" {
   type = string
 }
 

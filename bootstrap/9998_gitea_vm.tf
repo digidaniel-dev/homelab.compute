@@ -7,7 +7,7 @@ module "vm_9998_gitea" {
   # VM configuration
   name  = "gitea"
   vm_id = 9998
-  node  = "gryffindor"
+  node  = var.node
   tags  = ["debian", "gitea", "bootstrap"]
 
   # Credentials
@@ -32,6 +32,5 @@ module "vm_9998_gitea" {
 
   # Ansible
   repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
-  playbook = "gitea.yml"
   deploy_key = var.deploy_key
 }

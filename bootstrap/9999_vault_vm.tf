@@ -7,7 +7,7 @@ module "vm_9999_vault" {
   # VM configuration
   name  = "vault"
   vm_id = 9999
-  node  = "gryffindor"
+  node  = var.node
   tags  = ["debian", "vault", "bootstrap"]
 
   # Credentials
@@ -32,6 +32,5 @@ module "vm_9999_vault" {
 
   # Ansible
   repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
-  playbook = "vault.yml"
   deploy_key = var.deploy_key
 }
