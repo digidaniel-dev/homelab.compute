@@ -1,37 +1,33 @@
 module "vm_9998_gitea" {
   source = "../modules/cloud-init-vm"
-  providers = {
-    proxmox = proxmox.api
-  }
 
   # VM configuration
-  name  = "gitea"
+  vm_name  = "gitea"
   vm_id = 9998
-  node  = var.node
-  tags  = ["debian", "gitea", "bootstrap"]
+  vm_node  = var.node
+  vm_tags  = ["debian", "gitea", "bootstrap"]
 
   # Credentials
-  user     = var.default_user
-  ssh_keys = data.local_file.ssh_public_key.content
+  vm_user     = var.default_user
 
   # Resources
-  cpu_cores = 2
-  memory    = 2048
-  disk_size = 50
+  vm_cpu_cores = 2
+  vm_memory    = 2048
+  vm_disk_size = 50
 
   # Distro image configuration
-  url                = "https://cloud.debian.org/images/cloud/bookworm/20250703-2162/debian-12-generic-amd64-20250703-2162.qcow2"
-  filename           = "debian-12-generic-amd64-20250703-2162.img"
-  checksum           = "c651c2f3fd1ee342f225724959a86a97ad804027c3f057e03189455d093d07a006390929a22df0f95a5269291badc619964bde8bf9e2a33b6f3a01f492895068"
-  checksum_algorithm = "sha512"
+  download_file_url                = "https://cloud.debian.org/images/cloud/bookworm/20250703-2162/debian-12-generic-amd64-20250703-2162.qcow2"
+  download_file_filename           = "debian-12-generic-amd64-20250703-2162.img"
+  download_file_checksum           = "c651c2f3fd1ee342f225724959a86a97ad804027c3f057e03189455d093d07a006390929a22df0f95a5269291badc619964bde8bf9e2a33b6f3a01f492895068"
+  download_file_checksum_algorithm = "sha512"
 
   # Networking
-  ipaddress   = var.gitea_ip
-  macaddress  = var.gitea_mac
-  gateway     = var.default_gateway
-  dns_servers = var.dns_servers
+  vm_ipaddress   = var.gitea_ip
+  vm_macaddress  = var.gitea_mac
+  vm_gateway     = var.default_gateway
+  vm_dns_servers = var.dns_servers
 
   # Ansible
-  repo_url = "git@github.com:digidaniel-dev/homelab.platform.git"
-  deploy_key = var.deploy_key
+  ansible_repo_url = "git@github.com:digidaniel-dev/homelab.platform.git"
+  ansible_deploy_key = var.deploy_key
 }
