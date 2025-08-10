@@ -19,10 +19,6 @@ variable "api_token" {
 
 // Generic VM
 
-variable "ssh_key_path" {
-  type = string
-}
-
 variable "default_gateway" {
   type = string
 }

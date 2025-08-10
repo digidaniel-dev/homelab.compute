@@ -3,11 +3,11 @@ locals {
 }
 
 resource "proxmox_virtual_environment_vm" "cloud_init_vm" {
-  name        = var.name
-  description = var.description
-  tags        = concat(local.default_tags, var.tags)
+  name        = var.vm_name
+  description = var.vm_description
+  tags        = concat(local.default_tags, var.vm_tags)
 
-  node_name = var.node
+  node_name = data.proxmox_virtual_environment_node.vm-node.node_name
   vm_id     = var.vm_id
 
   keyboard_layout = "sv"
@@ -24,48 +24,48 @@ resource "proxmox_virtual_environment_vm" "cloud_init_vm" {
   migrate         = true
 
   cpu {
-    cores = var.cpu_cores
+    cores = var.vm_cpu_cores
   }
 
   memory {
-    dedicated = var.memory
+    dedicated = var.vm_memory
   }
 
   disk {
-    datastore_id = var.datastore_id
-    file_id      = proxmox_virtual_environment_download_file.cloud_image.id
+    datastore_id = var.vm_disk_datastore_id
+    file_id      = module.cloud_image.id
     interface    = "virtio0"
     iothread     = true
     discard      = "on"
-    size         = var.disk_size
+    size         = var.vm_disk_size
   }
 
   efi_disk {
-    datastore_id      = var.datastore_id
+    datastore_id      = var.efi_disk_datastore_id
     type              = "4m"
     pre_enrolled_keys = false
   }
 
   initialization {
-    datastore_id      = var.datastore_id
+    datastore_id      = var.vm_datastore_id
     user_data_file_id = proxmox_virtual_environment_file.user_cloud_config.id
 
     dns {
       domain  = "home.wollbro.se"
-      servers = var.dns_servers
+      servers = var.vm_dns_servers
     }
 
     ip_config {
       ipv4 {
-        address = var.ipaddress
-        gateway = var.gateway
+        address = var.vm_ipaddress
+        gateway = var.vm_gateway
       }
     }
   }
 
   network_device {
     bridge = "vmbr0"
-    mac_address = var.macaddress
+    mac_address = var.vm_macaddress
   }
 
   # This is required to prevent Kernel Panic error, not sure why!
@@ -76,7 +76,7 @@ resource "proxmox_virtual_environment_vm" "cloud_init_vm" {
   }
 
   tpm_state {
-    datastore_id = var.datastore_id
+    datastore_id = var.tpm_datastore_id
     version      = "v2.0"
   }
 }

@@ -3,7 +3,7 @@ locals {
     - path: /root/.ssh/id_rsa
       permissions: '0600'
       content: |
-        ${indent(4,trimspace(var.deploy_key))}
+        ${indent(4,trimspace(var.ansible_deploy_key))}
   EOT
 
   known_host_file = <<-EOT
@@ -25,7 +25,7 @@ locals {
 
       [Service]
       Type=oneshot
-      ExecStart=/usr/bin/ansible-pull -U ${var.repo_url} playbooks/${var.name}.yml --tags="update" -C main -d /root/.ansible-cache/platform-update
+      ExecStart=/usr/bin/ansible-pull -U ${var.ansible_repo_url} playbooks/${var.vm_name}.yml --tags="update" -C main -d /root/.ansible-cache/platform-update
       WorkingDirectory=/root
       StandardOutput=journal
       StandardError=journal
@@ -52,7 +52,7 @@ locals {
     local.known_host_file
   ]
 
-  ansible_write_files = var.use_ansible_pull ? [
+  ansible_write_files = var.vm_use_ansible_pull ? [
     local.ansible_pull_update_service,
     local.ansible_pull_update_timer
   ] : []

@@ -27,10 +27,11 @@ module "vm_9998_gitea" {
 
   # Networking
   ipaddress   = var.gitea_ip
+  macaddress  = var.gitea_mac
   gateway     = var.default_gateway
   dns_servers = var.dns_servers
 
   # Ansible
-  repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
+  repo_url = "git@github.com:digidaniel-dev/homelab.platform.git"
   deploy_key = var.deploy_key
 }

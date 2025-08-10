@@ -1,9 +1,9 @@
 module "latest_truenas_iso" {
   source = "../download-iso"
 
-  node               = var.node
-  url                = var.iso_url
-  filename           = var.iso_filename
-  checksum           = var.iso_checksum
-  checksum_algorithm = var.iso_checksum_algorithm
+  node               = data.proxmox_virtual_environment_node.download-file-node.node_name
+  url                = var.download_file_url
+  filename           = var.download_file_filename
+  checksum           = var.download_file_checksum
+  checksum_algorithm = var.download_file_checksum_algorithm
 }

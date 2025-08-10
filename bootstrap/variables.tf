@@ -15,7 +15,15 @@ variable "vault_ip" {
   type = string
 }
 
+variable "vault_mac" {
+  type = string
+}
+
 variable "gitea_ip" {
+  type = string
+}
+
+variable "gitea_mac" {
   type = string
 }
 

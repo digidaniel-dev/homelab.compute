@@ -22,3 +22,8 @@ variable "checksum_algorithm" {
   description = "Select what algorithm to use to verify file"
   default     = "sha256"
 }
+
+variable "content_type" {
+  type        = string
+  default     = "iso"
+}

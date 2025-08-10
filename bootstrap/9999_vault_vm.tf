@@ -27,10 +27,11 @@ module "vm_9999_vault" {
 
   # Networking
   ipaddress   = var.vault_ip
+  macaddress  = var.vault_mac
   gateway     = var.default_gateway
   dns_servers = var.dns_servers
 
   # Ansible
-  repo_url = "git@github.com:digidaniel-dev/homelab-config.git"
+  repo_url = "git@github.com:digidaniel-dev/homelab.platform.git"
   deploy_key = var.deploy_key
 }
