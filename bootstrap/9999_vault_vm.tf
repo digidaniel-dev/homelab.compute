@@ -28,6 +28,5 @@ module "vm_9999_vault" {
   vm_dns_servers = var.dns_servers
 
   # Ansible
-  ansible_repo_url = "git@github.com:digidaniel-dev/homelab.platform.git"
-  ansible_deploy_key = var.deploy_key
+  vm_use_ansible_pull = false
 }

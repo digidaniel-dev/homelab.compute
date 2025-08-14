@@ -15,6 +15,7 @@ resource "proxmox_virtual_environment_file" "user_cloud_config" {
       // what playbook is run.
       playbook = "${var.vm_name}.yml"
       write_files_block = indent(2, trimspace(local.write_files_block))
+      ansible-pull-install = local.ansible-pull-install
     })
 
     file_name = "${var.vm_name}-user-cloud-config.yaml"
